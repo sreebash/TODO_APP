@@ -1,0 +1,41 @@
+{% extends 'master.html' %}
+
+{% block title %}
+    <title>Django</title>
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <br><br>
+
+        <h2 class="text-info">TODO APP</h2>
+        <hr>
+        <form action="/add">
+
+            <label class="text-primary" for="title">Add Todo List!</label>
+        <input class="form-control" type="text" name="title"><br>
+            <input class="btn btn-primary" type="submit" value="ADD">
+
+        </form>
+        <br>
+    <div class="data text-right">
+
+        {% for todo in todos %}
+            <ul class="list-group">
+                <li class="list-group-item">
+                    {{ todo.title }}
+                    <a href="/delete/{{ todo.id }}"> <input class="btn btn-danger" type="submit" value="Delete"></a>
+
+                </li>
+
+            </ul>
+        {% endfor %}
+
+
+
+    </div>
+    </div>
+
+
+{% endblock %}
